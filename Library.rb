@@ -1,7 +1,5 @@
 #Library 
 
-#Library for codefellows coding challenge
-
 
 class Book
     attr_reader :title

@@ -1,7 +1,7 @@
 Ruby Library
 ===========
 
-Library, Shelf, and Book class in Ruby
+Library, Shelf, and Book classes in Ruby
 
 Ruby fiddle : http://rubyfiddle.com/riddles/6bb16
 

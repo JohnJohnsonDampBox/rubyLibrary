@@ -1,6 +1,5 @@
 #Library 
 
-
 class Book
     attr_reader :title
     
@@ -26,11 +25,11 @@ class Shelf
     end 
     
     def remove_book(book)
-        @books.delete(book)
+        @books.delete(book) if @books.include?(book) #removes book if on shelf
     end
     
     def add_book(book)
-        @books << book
+        @books << book unless @books.include?(book) #adds book if not on shelf
     end
     
     def print_books
@@ -50,7 +49,7 @@ class Library
     end
     
     def add_shelf(shelf)
-        @shelves << shelf
+        @shelves << shelf unless @shelves.include?(shelf) #adds shelf if shelf not already in
     end  
 end
 
@@ -68,10 +67,13 @@ book1.enshelf(fiction)
 book2.enshelf(fiction)
 book3 = Book.new('Principia Mathematica')
 book4 = Book.new('A Brief History of Time')
+fiction.print_books
+nonfiction.print_books
+book3.enshelf(nonfiction)
 book3.enshelf(nonfiction)
 book4.enshelf(nonfiction)
 lib.all_books
 book3.unshelf(nonfiction)
+book3.unshelf(nonfiction) 
 lib.all_books
-
 

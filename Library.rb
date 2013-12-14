@@ -1,3 +1,5 @@
+#Library 
+
 #Library for codefellows coding challenge
 
 
@@ -9,13 +11,11 @@ class Book
     end
     
     def enshelf(shelf)
-        @shelf = shelf
-        @shelf.add_book(self)
+        shelf.add_book(self)
     end
         
-    def unshelf(shelf)
-        @shelf = shelf       
-        @shelf.remove_book(self)
+    def unshelf(shelf)  
+        shelf.remove_book(self)
     end
 end
 
@@ -75,4 +75,5 @@ book4.enshelf(nonfiction)
 lib.all_books
 book3.unshelf(nonfiction)
 lib.all_books
+
 

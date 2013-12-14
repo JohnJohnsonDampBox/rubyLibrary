@@ -1,5 +1,4 @@
 #Library for codefellows coding challenge
-#
 
 
 class Book
@@ -11,11 +10,12 @@ class Book
     
     def enshelf(shelf)
         @shelf = shelf
-        shelf.add_book(self)
+        @shelf.add_book(self)
     end
         
     def unshelf(shelf)
-       @shelf.remove_book(self)
+        @shelf = shelf       
+        @shelf.remove_book(self)
     end
 end
 
@@ -34,6 +34,10 @@ class Shelf
     def add_book(book)
         @books << book
     end
+    
+    def print_books
+        @books.each { |x| puts x.title } unless @books.empty? #print book titles unless shelf is empty
+    end
 end
 
 class Library   
@@ -44,15 +48,11 @@ class Library
     end
     
     def all_books
-        for i in @shelves
-            @shelves[i].each do |x|
-                puts x 
-            end
-        end       
+        @shelves.each { |x| x.print_books }  unless @shelves.empty? #calls print_books for each shelf unless shelf is empty
     end
     
     def add_shelf(shelf)
-        @shelves << @shelf
+        @shelves << shelf
     end  
 end
 
@@ -61,8 +61,18 @@ puts lib
 fiction = Shelf.new(lib)
 puts fiction
 nonfiction = Shelf.new(lib)
-puts lib.shelves
+puts nonfiction
 book1 = Book.new('East Of Eden')
 puts book1.title
-book2 = Book.new('Farewell to Arms')
+book2 = Book.new('A Farewell to Arms')
 puts book2.title
+book1.enshelf(fiction)
+book2.enshelf(fiction)
+book3 = Book.new('Principia Mathematica')
+book4 = Book.new('A Brief History of Time')
+book3.enshelf(nonfiction)
+book4.enshelf(nonfiction)
+lib.all_books
+book3.unshelf(nonfiction)
+lib.all_books
+
